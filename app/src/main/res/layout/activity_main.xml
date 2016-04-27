@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryTransparent"
     android:orientation="vertical"
     tools:context="com.dat.testswipegallery.MainActivity">
 
@@ -14,20 +16,30 @@
         android:paddingTop="15dp" />
 
     <LinearLayout
-        android:background="@color/primaryTransparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
         android:layout_margin="30dp"
+        android:background="@color/primaryTransparent"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <TextView
-            android:textSize="20sp"
-            android:textColor="@color/white"
+            android:id="@+id/imageNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/imageNo" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
+
+    <com.dat.testswipegallery.MyCircleIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="100dp"
+        app:ci_height="8dp"
+        app:ci_margin="6dp"
+        app:ci_width="8dp" />
 </FrameLayout>
