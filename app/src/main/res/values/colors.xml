@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="primaryTransparent">#B33F51B5</color>
     <color name="white">#FFFFFF</color>
+    <color name="bg_object">#46e66e</color>
+    <color name="bg_fragment">#469ee6</color>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,38 +8,90 @@
     android:orientation="vertical"
     tools:context="com.dat.testswipegallery.MainActivity">
 
-    <com.lsjwzh.widget.recyclerviewpager.LoopRecyclerViewPager
-        android:id="@+id/viewpager"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_object">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:layout_margin="30dp"
-        android:background="@color/primaryTransparent"
-        android:orientation="horizontal"
-        android:padding="8dp">
+
+        <com.dat.testswipegallery.LoopViewPager.LoopViewPager
+            android:id="@+id/viewpagerObject"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp" />
 
         <TextView
-            android:id="@+id/imageNo"
+            android:id="@+id/imageNoObject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:layout_gravity="top|right"
+            android:layout_margin="30dp"
+            android:padding="8dp"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            tools:text="New Text" />
 
-    <com.dat.testswipegallery.MyCircleIndicator
-        android:id="@+id/indicator"
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicatorObject"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="24dp"
+            app:ci_height="8dp"
+            app:ci_margin="6dp"
+            app:ci_width="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/using_pageradapter"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="100dp"
-        app:ci_height="8dp"
-        app:ci_margin="6dp"
-        app:ci_width="8dp" />
-</FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_fragment">
+
+
+        <com.dat.testswipegallery.LoopViewPager.LoopViewPager
+            android:id="@+id/viewpagerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp" />
+
+        <TextView
+            android:id="@+id/imageNoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_margin="30dp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:text="New Text" />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicatorFragment"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="24dp"
+            app:ci_height="8dp"
+            app:ci_margin="6dp"
+            app:ci_width="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/using_fragmentpageradapter"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TestSwipeGallery</string>
+    <string name="using_pageradapter">Using PagerAdapter</string>
+    <string name="using_fragmentpageradapter">Using FragmentPagerAdapter</string>
 </resources>
