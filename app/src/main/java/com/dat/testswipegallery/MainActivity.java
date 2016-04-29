@@ -41,11 +41,20 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         final String[] images = new String[] {
-            "http://s11.postimg.org/aft369v1v/dog_how_to_select_your_new_best_friend_thinkstoc.jpg",
+            /*"http://s11.postimg.org/aft369v1v/dog_how_to_select_your_new_best_friend_thinkstoc.jpg",
             "http://s22.postimg.org/3ydo64c3l/cutest_cat_ever_snoopy_face_2.jpg",
             "http://www.zoo22.ru/upload/iblock/05a/05ab85cdf16792f2efeb1a279ba399b0.jpg",
             "http://www.zoo22.ru/upload/iblock/024/024d113a2d4b8f44554eef348fc9affb.png",
-            "http://www.zoo22.ru/upload/iblock/e55/e55f7897ac7a6f628900f1ef41558f26.png"
+            "http://www.zoo22.ru/upload/iblock/e55/e55f7897ac7a6f628900f1ef41558f26.png",
+            "http://s32.postimg.org/bu2cb8dlh/018.jpg",
+            "http://s32.postimg.org/mi63a2nkl/10472795_1516097865378010_1206966512854576988_o.jpg",
+            "http://s32.postimg.org/lothhghjp/11014977_419568654912989_2640509535362674658_n.jpg",
+            "http://s32.postimg.org/jlj29shqt/12791057_657347101072467_2630471624444555902_n.jpg"*/
+            "http://s32.postimg.org/b0z8uv1sl/afro_samurai_resurrection_original.jpg",
+            "http://s32.postimg.org/n6og59gid/asuras_wrath_wallpaper_hd_2_1080p.jpg",
+            "http://s32.postimg.org/8or8x9p79/barret_M107_by_mimi3d.jpg",
+            "http://s32.postimg.org/vz5esy1n9/barrett_m107_by_deargruadher_d4dikw8.jpg",
+            "http://s32.postisadasdmg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
         };
 
         fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);

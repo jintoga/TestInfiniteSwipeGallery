@@ -19,7 +19,8 @@
             android:id="@+id/viewpagerObject"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="30dp" />
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="36dp" />
 
         <TextView
             android:id="@+id/imageNoObject"
@@ -62,7 +63,8 @@
             android:id="@+id/viewpagerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="30dp" />
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="36dp" />
 
         <TextView
             android:id="@+id/imageNoFragment"

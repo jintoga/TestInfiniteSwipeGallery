@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.imageView)
-        protected ImageView imageView;
+        protected SimpleDraweeView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);

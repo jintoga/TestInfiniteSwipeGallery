@@ -1,6 +1,7 @@
 package com.dat.testswipegallery.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.dat.testswipegallery.R;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -17,7 +19,7 @@ import com.squareup.picasso.Picasso;
 public class MyPagerAdapter extends PagerAdapter {
 
     @Bind(R.id.imageView)
-    protected ImageView imageView;
+    protected SimpleDraweeView imageView;
 
     private String[] data;
 
@@ -47,10 +49,12 @@ public class MyPagerAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.fragment_photo, null);
         collection.addView(view);
         ButterKnife.bind(this, view);
-        Picasso.with(collection.getContext())
+        /*Picasso.with(collection.getContext())
             .load(data[position])
             .placeholder(R.drawable.placeholder)
-            .into(imageView);
+            .into(imageView);*/
+        Uri imageUri = Uri.parse(data[position]);
+        imageView.setImageURI(imageUri);
         return view;
     }
 }
