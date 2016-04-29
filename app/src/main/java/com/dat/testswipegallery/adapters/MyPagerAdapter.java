@@ -6,12 +6,10 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.dat.testswipegallery.R;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by DAT on 29-Apr-16.
@@ -46,12 +44,12 @@ public class MyPagerAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup collection, final int position) {
         LayoutInflater inflater = (LayoutInflater) collection.getContext()
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_photo, null);
+        View view = inflater.inflate(R.layout.fragment_photo_picasso, null);
         collection.addView(view);
         ButterKnife.bind(this, view);
-        /*Picasso.with(collection.getContext())
+       /* Picasso.with(collection.getContext())
             .load(data[position])
-            .placeholder(R.drawable.placeholder)
+            .placeholder(R.drawable.loading2)
             .into(imageView);*/
         Uri imageUri = Uri.parse(data[position]);
         imageView.setImageURI(imageUri);

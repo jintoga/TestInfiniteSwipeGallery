@@ -35,4 +35,11 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         return fragment;
     }
+
+    public float getPageWidth(int position) {
+        if (position == 0 || position == 2) {
+            return 0.8f;
+        }
+        return 1f;
+    }
 }

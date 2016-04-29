@@ -3,6 +3,7 @@ package com.dat.testswipegallery;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,14 +55,16 @@ public class MainActivity extends AppCompatActivity {
             "http://s32.postimg.org/n6og59gid/asuras_wrath_wallpaper_hd_2_1080p.jpg",
             "http://s32.postimg.org/8or8x9p79/barret_M107_by_mimi3d.jpg",
             "http://s32.postimg.org/vz5esy1n9/barrett_m107_by_deargruadher_d4dikw8.jpg",
-            "http://s32.postisadasdmg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
+            "http://s32.postimg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
         };
 
         fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);
 
         fragmentViewPager.setAdapter(fragmentPagerAdapter);
-        fragmentViewPager.setBoundaryCaching(true);
+        fragmentViewPager.setBoundaryCaching(false);
         indicatorFragment.setViewPager(fragmentViewPager);
+        fragmentViewPager.setClipToPadding(false);
+        fragmentViewPager.setOffscreenPageLimit(3);
         fragmentViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset,
@@ -82,8 +85,13 @@ public class MainActivity extends AppCompatActivity {
         });
         pagerAdapter = new MyPagerAdapter(images);
         objectViewPager.setAdapter(pagerAdapter);
+        objectViewPager.setOffscreenPageLimit(3);
         objectViewPager.setBoundaryCaching(true);
         indicatorObject.setViewPager(objectViewPager);
+        objectViewPager.setClipToPadding(false);
+        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100 * 2,
+            getResources().getDisplayMetrics());
+        objectViewPager.setPageMargin(-margin);
         objectViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset,

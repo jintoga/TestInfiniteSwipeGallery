@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.facebook.common.logging.FLog;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.controller.ControllerListener;
@@ -75,7 +74,6 @@ public class PhotoFragment extends Fragment {
 
                 @Override
                 public void onFailure(String id, Throwable throwable) {
-                    FLog.e(getClass(), throwable, "Error loading %s", id);
                     //progressBar.setVisibility(View.GONE);
                 }
 
