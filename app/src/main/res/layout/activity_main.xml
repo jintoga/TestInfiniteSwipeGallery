@@ -15,10 +15,11 @@
         android:background="@color/bg_object">
 
 
-        <com.dat.testswipegallery.LoopViewPager.LoopViewPager
+        <com.dat.testswipegallery.InfiniteViewPager.InfiniteViewPager
             android:id="@+id/viewpagerObject"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginBottom="36dp"
             android:layout_marginTop="36dp" />
 
@@ -63,10 +64,9 @@
             android:id="@+id/viewpagerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginBottom="36dp"
-            android:layout_marginTop="36dp"
-            android:paddingLeft="100dp"
-            android:paddingRight="100dp" />
+            android:layout_marginTop="36dp" />
 
         <TextView
             android:id="@+id/imageNoFragment"

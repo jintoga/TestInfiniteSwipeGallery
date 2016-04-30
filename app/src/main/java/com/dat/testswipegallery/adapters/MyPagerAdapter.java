@@ -2,12 +2,13 @@ package com.dat.testswipegallery.adapters;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
 import com.dat.testswipegallery.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -53,6 +54,17 @@ public class MyPagerAdapter extends PagerAdapter {
             .into(imageView);*/
         Uri imageUri = Uri.parse(data[position]);
         imageView.setImageURI(imageUri);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Clicked ", position + 1 + " ");
+            }
+        });
         return view;
+    }
+
+    @Override
+    public float getPageWidth(int position) {
+        return 0.8f;
     }
 }

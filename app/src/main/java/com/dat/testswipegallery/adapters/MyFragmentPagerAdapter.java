@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import com.dat.testswipegallery.LoopViewPager.LoopViewPager;
 import com.dat.testswipegallery.PhotoFragment;
 
 /**
  * Created by DAT on 29-Apr-16.
  */
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private String[] data;
 
@@ -37,9 +38,6 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     public float getPageWidth(int position) {
-        if (position == 0 || position == 2) {
-            return 0.8f;
-        }
-        return 1f;
+        return 0.8f;
     }
 }

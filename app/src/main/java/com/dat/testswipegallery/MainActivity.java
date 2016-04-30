@@ -3,11 +3,13 @@ package com.dat.testswipegallery;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.dat.testswipegallery.InfiniteViewPager.InfinitePagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPager.InfiniteViewPager;
 import com.dat.testswipegallery.LoopViewPager.LoopViewPager;
+import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
 import com.dat.testswipegallery.adapters.MyFragmentPagerAdapter;
 import com.dat.testswipegallery.adapters.MyPagerAdapter;
 import me.relex.circleindicator.CircleIndicator;
@@ -15,7 +17,7 @@ import me.relex.circleindicator.CircleIndicator;
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.viewpagerObject)
-    protected LoopViewPager objectViewPager;
+    protected InfiniteViewPager objectViewPager;
     @Bind(R.id.imageNoObject)
     protected TextView imageNoObject;
     @Bind(R.id.indicatorObject)
@@ -61,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
         fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);
 
         fragmentViewPager.setAdapter(fragmentPagerAdapter);
-        fragmentViewPager.setBoundaryCaching(false);
         indicatorFragment.setViewPager(fragmentViewPager);
         fragmentViewPager.setClipToPadding(false);
-        fragmentViewPager.setOffscreenPageLimit(3);
+        //fragmentViewPager.setPadding(100, 0, 0, 0);
+        /*fragmentViewPager.setOffscreenPageLimit(2);
+        fragmentViewPager.setPageMargin(-1);*/
         fragmentViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset,
@@ -84,30 +87,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         pagerAdapter = new MyPagerAdapter(images);
-        objectViewPager.setAdapter(pagerAdapter);
-        objectViewPager.setOffscreenPageLimit(3);
-        objectViewPager.setBoundaryCaching(true);
-        indicatorObject.setViewPager(objectViewPager);
+        final PagerAdapter wrappedAdapter = new InfinitePagerAdapter(pagerAdapter);
+        objectViewPager.setAdapter(wrappedAdapter);
+        //indicatorObject.setViewPager(objectViewPager);
+        objectViewPager.setOffscreenPageLimit(5);
         objectViewPager.setClipToPadding(false);
-        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100 * 2,
-            getResources().getDisplayMetrics());
-        objectViewPager.setPageMargin(-margin);
-        objectViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset,
-                int positionOffsetPixels) {
+        objectViewPager.setPageMargin(-1);
+        objectViewPager.enableCenterLockOfChilds();
+        objectViewPager.setCurrentItemInCenter(0);
+        imageNoObject.setText(
+            objectViewPager.getCurrentItem() + 1 + "/" + objectViewPager.getActualItemCount());
+        objectViewPager.setOnPageChangeListener(
+            new com.dat.testswipegallery.NoundlaViewPager.ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset,
+                    int positionOffsetPixels) {
 
-            }
+                }
 
-            @Override
-            public void onPageSelected(int position) {
-                imageNoObject.setText(position + 1 + "/" + objectViewPager.getAdapter().getCount());
-            }
+                @Override
+                public void onPageSelected(int position) {
+                    imageNoObject.setText(objectViewPager.getCurrentItem()
+                        + 1
+                        + "/"
+                        + objectViewPager.getActualItemCount());
+                }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
+                @Override
+                public void onPageScrollStateChanged(int state) {
 
-            }
-        });
+                }
+            });
     }
 }
