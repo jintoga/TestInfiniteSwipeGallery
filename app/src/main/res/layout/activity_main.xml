@@ -14,7 +14,7 @@
         android:background="@color/bg_object">
 
 
-        <com.dat.testswipegallery.InfiniteViewPager.InfiniteViewPager
+        <com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager.InfiniteViewPager
             android:id="@+id/viewpagerObject"
             android:layout_width="match_parent"
             android:layout_height="400dp"
@@ -31,7 +31,7 @@
             android:textSize="20sp"
             tools:text="New Text" />
 
-        <me.relex.circleindicator.CircleIndicator
+        <com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.CircleIndicator
             android:id="@+id/indicatorObject"
             android:layout_width="match_parent"
             android:layout_height="48dp"

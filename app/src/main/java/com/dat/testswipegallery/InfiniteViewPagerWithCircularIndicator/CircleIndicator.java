@@ -1,4 +1,4 @@
-package com.dat.testswipegallery;
+package com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -14,10 +14,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
+import com.dat.testswipegallery.R;
 import com.lsjwzh.widget.recyclerviewpager.LoopRecyclerViewPager;
 import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
 
-public class MyCircleIndicator extends LinearLayout {
+public class CircleIndicator extends LinearLayout {
 
     private final static int DEFAULT_INDICATOR_WIDTH = 5;
     private LoopRecyclerViewPager mViewpager;
@@ -35,23 +36,23 @@ public class MyCircleIndicator extends LinearLayout {
 
     private int mLastPosition = -1;
 
-    public MyCircleIndicator(Context context) {
+    public CircleIndicator(Context context) {
         super(context);
         init(context, null);
     }
 
-    public MyCircleIndicator(Context context, AttributeSet attrs) {
+    public CircleIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public MyCircleIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircleIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public MyCircleIndicator(Context context, AttributeSet attrs, int defStyleAttr,
+    public CircleIndicator(Context context, AttributeSet attrs, int defStyleAttr,
         int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);

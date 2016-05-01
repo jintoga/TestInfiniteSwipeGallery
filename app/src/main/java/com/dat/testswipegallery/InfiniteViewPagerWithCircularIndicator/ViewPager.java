@@ -1,4 +1,4 @@
-package com.dat.testswipegallery.NoundlaViewPager;
+package com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator;
 
 import android.content.Context;
 import android.content.res.TypedArray;

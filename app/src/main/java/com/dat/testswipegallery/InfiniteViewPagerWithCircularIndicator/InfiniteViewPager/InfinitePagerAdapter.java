@@ -1,11 +1,11 @@
-package com.dat.testswipegallery.InfiniteViewPager;
+package com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager;
 
 import android.database.DataSetObserver;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 
 /**
  * A PagerAdapter that wraps around another PagerAdapter to handle paging wrap-around.

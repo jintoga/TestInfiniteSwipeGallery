@@ -1,4 +1,4 @@
-package com.dat.testswipegallery.NoundlaViewPager;
+package com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator;
 
 /**
  * Created by DAT on 01-May-16.

@@ -1,9 +1,9 @@
-package com.dat.testswipegallery.InfiniteViewPager;
+package com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
-import com.dat.testswipegallery.NoundlaViewPager.ViewPager;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.ViewPager;
 
 /**
  * A {@link ViewPager} that allows pseudo-infinite paging with a wrap-around effect. Should be used

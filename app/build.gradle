@@ -35,6 +35,5 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.0-beta5'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'me.relex:circleindicator:1.2.0@aar'
     compile 'com.facebook.fresco:fresco:0.10.0'
 }

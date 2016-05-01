@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.dat.testswipegallery.InfiniteViewPager.InfinitePagerAdapter;
-import com.dat.testswipegallery.InfiniteViewPager.InfiniteViewPager;
-import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager.InfinitePagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager.InfiniteViewPager;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.CircleIndicator;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 import com.dat.testswipegallery.adapters.MyPagerAdapter;
-import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         imageNoObject.setText(
             objectViewPager.getCurrentItem() + 1 + "/" + objectViewPager.getActualItemCount());
         objectViewPager.setOnPageChangeListener(
-            new com.dat.testswipegallery.NoundlaViewPager.ViewPager.OnPageChangeListener() {
+            new com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.ViewPager.OnPageChangeListener() {
                 @Override
                 public void onPageScrolled(int position, float positionOffset,
                     int positionOffsetPixels) {

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
+import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 import com.dat.testswipegallery.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
