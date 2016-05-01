@@ -94,43 +94,5 @@ public class PhotoFragment extends Fragment {
         }
         return view;
     }
-
-    /*private void loadImage(String imageUrl) {
-        Transformation transformation = new Transformation() {
-
-            @Override
-            public Bitmap transform(Bitmap source) {
-                int targetWidth = imageView.getWidth();
-
-                double aspectRatio = (double) source.getHeight() / (double) source.getWidth();
-                int targetHeight = (int) (targetWidth * aspectRatio);
-                Bitmap result = Bitmap.createScaledBitmap(source, targetWidth, targetHeight, false);
-                if (result != source) {
-                    // Same bitmap is returned if sizes are the same
-                    source.recycle();
-                }
-                return result;
-            }
-
-            @Override
-            public String key() {
-                return "transformation" + " desiredWidth";
-            }
-        };
-
-        Picasso.with(getContext())
-            .load(imageUrl)
-            .error(android.R.drawable.stat_notify_error)
-            .transform(transformation)
-            .into(imageView, new Callback() {
-                @Override
-                public void onSuccess() {
-                }
-
-                @Override
-                public void onError() {
-                }
-            });
-    }*/
 }
 

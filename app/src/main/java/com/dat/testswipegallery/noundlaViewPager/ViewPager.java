@@ -126,7 +126,6 @@ public class ViewPager extends ViewGroup {
 
     private boolean mIsBeingDragged;
     private boolean mIsUnableToDrag;
-    private boolean mIgnoreGutter;
     private int mDefaultGutterSize;
     private int mGutterSize;
     private int mTouchSlop;
@@ -1094,7 +1093,7 @@ public class ViewPager extends ViewGroup {
             // Base offsets off of oldCurInfo.
             if (oldCurPosition < curItem.position) {
                 int itemIndex = 0;
-                ItemInfo ii = null;
+                ItemInfo ii;
                 float offset = oldCurInfo.offset + oldCurInfo.widthFactor + marginOffset;
                 for (int pos = oldCurPosition + 1;
                     pos <= curItem.position && itemIndex < mItems.size(); pos++) {
@@ -1656,7 +1655,7 @@ public class ViewPager extends ViewGroup {
                 if (!lp.isDecor) continue;
 
                 final int hgrav = lp.gravity & Gravity.HORIZONTAL_GRAVITY_MASK;
-                int childLeft = 0;
+                int childLeft;
                 switch (hgrav) {
                     default:
                         childLeft = paddingLeft;

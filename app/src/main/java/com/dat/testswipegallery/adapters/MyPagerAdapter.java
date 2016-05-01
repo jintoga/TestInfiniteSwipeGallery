@@ -22,6 +22,8 @@ public class MyPagerAdapter extends PagerAdapter {
 
     private String[] data;
 
+    private boolean shouldShowChildren = false;
+
     public MyPagerAdapter(String[] data) {
         this.data = data;
     }
@@ -48,10 +50,7 @@ public class MyPagerAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.fragment_photo_picasso, null);
         collection.addView(view);
         ButterKnife.bind(this, view);
-       /* Picasso.with(collection.getContext())
-            .load(data[position])
-            .placeholder(R.drawable.loading2)
-            .into(imageView);*/
+
         Uri imageUri = Uri.parse(data[position]);
         imageView.setImageURI(imageUri);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +62,15 @@ public class MyPagerAdapter extends PagerAdapter {
         return view;
     }
 
+    public void setShouldShowChildren(boolean shouldShowChildren) {
+        this.shouldShowChildren = shouldShowChildren;
+    }
+
     @Override
     public float getPageWidth(int position) {
-        return 0.8f;
+        if (shouldShowChildren) {
+            return 0.6f;
+        }
+        return 1f;
     }
 }

@@ -1,16 +1,14 @@
 package com.dat.testswipegallery;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.dat.testswipegallery.InfiniteViewPager.InfinitePagerAdapter;
 import com.dat.testswipegallery.InfiniteViewPager.InfiniteViewPager;
-import com.dat.testswipegallery.LoopViewPager.LoopViewPager;
 import com.dat.testswipegallery.NoundlaViewPager.PagerAdapter;
-import com.dat.testswipegallery.adapters.MyFragmentPagerAdapter;
 import com.dat.testswipegallery.adapters.MyPagerAdapter;
 import me.relex.circleindicator.CircleIndicator;
 
@@ -23,14 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.indicatorObject)
     protected CircleIndicator indicatorObject;
 
-    @Bind(R.id.viewpagerFragment)
-    protected LoopViewPager fragmentViewPager;
-    @Bind(R.id.imageNoFragment)
-    protected TextView imageNoFragment;
-    @Bind(R.id.indicatorFragment)
-    protected CircleIndicator indicatorFragment;
-
-    private MyFragmentPagerAdapter fragmentPagerAdapter;
     private MyPagerAdapter pagerAdapter;
 
     @Override
@@ -60,39 +50,19 @@ public class MainActivity extends AppCompatActivity {
             "http://s32.postimg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
         };
 
-        fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);
-
-        fragmentViewPager.setAdapter(fragmentPagerAdapter);
-        indicatorFragment.setViewPager(fragmentViewPager);
-        fragmentViewPager.setClipToPadding(false);
-        //fragmentViewPager.setPadding(100, 0, 0, 0);
-        /*fragmentViewPager.setOffscreenPageLimit(2);
-        fragmentViewPager.setPageMargin(-1);*/
-        fragmentViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset,
-                int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                imageNoFragment.setText(
-                    position + 1 + "/" + fragmentViewPager.getAdapter().getCount());
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
         pagerAdapter = new MyPagerAdapter(images);
         final PagerAdapter wrappedAdapter = new InfinitePagerAdapter(pagerAdapter);
         objectViewPager.setAdapter(wrappedAdapter);
         //indicatorObject.setViewPager(objectViewPager);
-        objectViewPager.setOffscreenPageLimit(5);
+        objectViewPager.setOffscreenPageLimit(2);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            pagerAdapter.setShouldShowChildren(true);
+            objectViewPager.setPageMargin(-1);
+        } else {
+            pagerAdapter.setShouldShowChildren(false);
+            objectViewPager.setPageMargin(0);
+        }
         objectViewPager.setClipToPadding(false);
-        objectViewPager.setPageMargin(-1);
         objectViewPager.enableCenterLockOfChilds();
         objectViewPager.setCurrentItemInCenter(0);
         imageNoObject.setText(
