@@ -31,6 +31,11 @@ public class InfinitePagerAdapter extends PagerAdapter {
         return Integer.MAX_VALUE;
     }
 
+    @Override
+    public int getActualCount() {
+        return getRealCount();
+    }
+
     /**
      * @return the {@link #getCount()} result of the wrapped adapter
      */

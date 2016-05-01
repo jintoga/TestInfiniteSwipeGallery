@@ -644,7 +644,7 @@ public class ViewPager extends ViewGroup {
      * @param listener Listener to set
      * @return The old listener that was set, if any.
      */
-    OnPageChangeListener setInternalPageChangeListener(OnPageChangeListener listener) {
+    protected OnPageChangeListener setInternalPageChangeListener(OnPageChangeListener listener) {
         OnPageChangeListener oldListener = mInternalPageChangeListener;
         mInternalPageChangeListener = listener;
         return oldListener;

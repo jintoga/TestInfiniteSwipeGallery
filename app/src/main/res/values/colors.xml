@@ -7,4 +7,6 @@
     <color name="white">#FFFFFF</color>
     <color name="bg_object">#46e66e</color>
     <color name="bg_fragment">#469ee6</color>
+    <color name="pager_bg">#414141</color>
+    <color name="black_transparent_70">#B3000000</color>
 </resources>

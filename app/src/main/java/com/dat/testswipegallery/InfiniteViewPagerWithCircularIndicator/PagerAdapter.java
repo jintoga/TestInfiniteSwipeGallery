@@ -75,6 +75,11 @@ public abstract class PagerAdapter {
     public abstract int getCount();
 
     /**
+     * Return real the number of views.
+     */
+    public abstract int getActualCount();
+
+    /**
      * Called when a change in the shown pages is going to start being made.
      *
      * @param container The containing View which is displaying this adapter's

@@ -34,6 +34,11 @@ public class MyPagerAdapter extends PagerAdapter {
     }
 
     @Override
+    public int getActualCount() {
+        return data.length;
+    }
+
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
@@ -47,10 +52,9 @@ public class MyPagerAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup collection, final int position) {
         LayoutInflater inflater = (LayoutInflater) collection.getContext()
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_photo_picasso, null);
+        View view = inflater.inflate(R.layout.photo_page, null);
         collection.addView(view);
         ButterKnife.bind(this, view);
-
         Uri imageUri = Uri.parse(data[position]);
         imageView.setImageURI(imageUri);
         imageView.setOnClickListener(new View.OnClickListener() {
