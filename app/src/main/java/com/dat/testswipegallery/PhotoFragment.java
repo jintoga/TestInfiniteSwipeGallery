@@ -4,11 +4,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -21,8 +21,8 @@ public class PhotoFragment extends Fragment implements View.OnClickListener {
 
     @Bind(R.id.imageView)
     protected SimpleDraweeView imageView;
-    @Bind(R.id.overGroundImage)
-    protected ImageView overGroundImage;
+    @Bind(R.id.cardView)
+    protected CardView cardView;
 
     View view;
 
@@ -60,9 +60,9 @@ public class PhotoFragment extends Fragment implements View.OnClickListener {
 
     public void displayOverGroundImage(boolean display) {
         if (display) {
-            overGroundImage.setVisibility(View.VISIBLE);
+            cardView.setForeground(getResources().getDrawable(R.color.black_transparent_60));
         } else {
-            overGroundImage.setVisibility(View.GONE);
+            cardView.setForeground(getResources().getDrawable(R.color.black_transparent_00));
         }
     }
 }
