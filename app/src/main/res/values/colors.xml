@@ -9,4 +9,11 @@
     <color name="bg_fragment">#469ee6</color>
     <color name="pager_bg">#414141</color>
     <color name="black_transparent_70">#B3000000</color>
+    <color name="black_transparent_60">#99000000</color>
+    <color name="black_transparent_40">#66000000</color>
+    <color name="black_transparent_20">#33000000</color>
+    <color name="black_transparent_15">#26000000</color>
+    <color name="black_transparent_10">#1A000000</color>
+    <color name="black_transparent_05">#0D000000</color>
+    <color name="black_transparent_00">#00000000</color>
 </resources>

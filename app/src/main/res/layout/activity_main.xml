@@ -22,15 +22,15 @@
         <com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.CircularIndicator
             android:id="@+id/indicatorObject"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="32dp"
             android:layout_gravity="center|bottom"
-            android:layout_marginBottom="8dp"
+            android:background="@drawable/gradient_background"
             app:ci_animator="@animator/scale_with_alpha"
-            app:ci_drawable="@drawable/ic_pets_white_24px"
+            app:ci_drawable="@drawable/cat"
             app:ci_drawable_unselected="@drawable/ic_pets_white_24px"
-            app:ci_height="16dp"
-            app:ci_margin="8dp"
-            app:ci_width="16dp" />
+            app:ci_height="15dp"
+            app:ci_margin="6dp"
+            app:ci_width="15dp" />
 
     </FrameLayout>
 
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/using_pageradapter"
+        android:text="@string/using_fragmentpageradapter"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

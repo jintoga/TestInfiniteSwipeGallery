@@ -4,9 +4,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -14,11 +16,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /**
  * Created by DAT on 02-May-16.
  */
-public class PhotoFragment extends Fragment {
+public class PhotoFragment extends Fragment implements View.OnClickListener {
     public static final String ARGUMENT_PHOTO = "Photo";
 
     @Bind(R.id.imageView)
     protected SimpleDraweeView imageView;
+    @Bind(R.id.overGroundImage)
+    protected ImageView overGroundImage;
 
     View view;
 
@@ -43,6 +47,22 @@ public class PhotoFragment extends Fragment {
         if (photo != null) {
             imageView.setImageURI(photo);
         }
+        imageView.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (photo != null) {
+            Log.d("Fragment", photo.getPath());
+        }
+    }
+
+    public void displayOverGroundImage(boolean display) {
+        if (display) {
+            overGroundImage.setVisibility(View.VISIBLE);
+        } else {
+            overGroundImage.setVisibility(View.GONE);
+        }
     }
 }

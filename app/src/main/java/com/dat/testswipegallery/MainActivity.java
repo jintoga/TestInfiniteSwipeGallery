@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             "http://s32.postimg.org/vz5esy1n9/barrett_m107_by_deargruadher_d4dikw8.jpg",
             "http://s32.postimg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
         };
-        fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);
+        fragmentPagerAdapter =
+            new MyFragmentPagerAdapter(getSupportFragmentManager(), this, images);
         final PagerAdapter wrappedFragmentPagerAdapter =
             new InfinitePagerAdapter(fragmentPagerAdapter);
         //pagerAdapter = new MyPagerAdapter(images);
@@ -76,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset,
                 int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
+                fragmentPagerAdapter.highlightCurrentFragment(position);
                 imageNoObject.setText(objectViewPager.getCurrentItem()
                     + 1
                     + "/"
@@ -89,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
     }
