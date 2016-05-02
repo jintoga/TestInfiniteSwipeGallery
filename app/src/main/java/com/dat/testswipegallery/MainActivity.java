@@ -11,6 +11,7 @@ import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteV
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager.InfiniteViewPager;
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.ViewPager;
+import com.dat.testswipegallery.adapters.MyFragmentPagerAdapter;
 import com.dat.testswipegallery.adapters.MyPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected CircularIndicator indicatorObject;
 
     private MyPagerAdapter pagerAdapter;
+    private MyFragmentPagerAdapter fragmentPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +52,19 @@ public class MainActivity extends AppCompatActivity {
             "http://s32.postimg.org/vz5esy1n9/barrett_m107_by_deargruadher_d4dikw8.jpg",
             "http://s32.postimg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
         };
-
-        pagerAdapter = new MyPagerAdapter(images);
-        final PagerAdapter wrappedAdapter = new InfinitePagerAdapter(pagerAdapter);
-        objectViewPager.setAdapter(wrappedAdapter);
+        fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), images);
+        final PagerAdapter wrappedFragmentPagerAdapter =
+            new InfinitePagerAdapter(fragmentPagerAdapter);
+        //pagerAdapter = new MyPagerAdapter(images);
+        //final PagerAdapter wrappedAdapter = new InfinitePagerAdapter(pagerAdapter);
+        objectViewPager.setAdapter(wrappedFragmentPagerAdapter);
         indicatorObject.setViewPager(objectViewPager);
         objectViewPager.setOffscreenPageLimit(2);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            pagerAdapter.setShouldShowChildren(true);
+            fragmentPagerAdapter.setShouldShowChildren(true);
             objectViewPager.setPageMargin(-1);
         } else {
-            pagerAdapter.setShouldShowChildren(false);
+            fragmentPagerAdapter.setShouldShowChildren(false);
             objectViewPager.setPageMargin(0);
         }
         objectViewPager.setClipToPadding(false);
