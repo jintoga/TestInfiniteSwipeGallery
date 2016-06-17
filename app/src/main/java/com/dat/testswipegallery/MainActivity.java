@@ -12,7 +12,6 @@ import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteV
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.ViewPager;
 import com.dat.testswipegallery.adapters.MyFragmentPagerAdapter;
-import com.dat.testswipegallery.adapters.MyPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.indicatorObject)
     protected CircularIndicator indicatorObject;
 
-    private MyPagerAdapter pagerAdapter;
     private MyFragmentPagerAdapter fragmentPagerAdapter;
 
     @Override
@@ -56,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
             new MyFragmentPagerAdapter(getSupportFragmentManager(), this, images);
         final PagerAdapter wrappedFragmentPagerAdapter =
             new InfinitePagerAdapter(fragmentPagerAdapter);
-        //pagerAdapter = new MyPagerAdapter(images);
-        //final PagerAdapter wrappedAdapter = new InfinitePagerAdapter(pagerAdapter);
+
         objectViewPager.setAdapter(wrappedFragmentPagerAdapter);
         indicatorObject.setViewPager(objectViewPager);
         objectViewPager.setOffscreenPageLimit(2);

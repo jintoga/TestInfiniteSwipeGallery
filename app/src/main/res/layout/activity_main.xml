@@ -16,7 +16,7 @@
         <com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteViewPager.InfiniteViewPager
             android:id="@+id/viewpagerObject"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="200dp"
             android:layout_gravity="top" />
 
         <com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.CircularIndicator
