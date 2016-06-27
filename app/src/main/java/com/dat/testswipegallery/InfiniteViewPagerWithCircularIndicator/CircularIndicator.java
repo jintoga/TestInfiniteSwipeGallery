@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.annotation.AnimatorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -50,7 +51,8 @@ public class CircularIndicator extends LinearLayout {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CircularIndicator(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CircularIndicator(Context context, AttributeSet attrs, int defStyleAttr,
+        int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
     }
@@ -65,7 +67,8 @@ public class CircularIndicator extends LinearLayout {
             return;
         }
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircularIndicator);
+        TypedArray typedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.CircularIndicator);
         mIndicatorWidth =
             typedArray.getDimensionPixelSize(R.styleable.CircularIndicator_ci_width, -1);
         mIndicatorHeight =
@@ -176,6 +179,10 @@ public class CircularIndicator extends LinearLayout {
 
             @Override
             public void onPageSelected(int position) {
+                Log.d("onPageSelected", "position:"
+                    + position
+                    + " transformToActualPosition(mLastPosition)):"
+                    + transformToActualPosition(mLastPosition));
                 if (mViewpager.getAdapter() == null || mViewpager.getAdapter().getCount() <= 0) {
                     return;
                 }
@@ -216,11 +223,11 @@ public class CircularIndicator extends LinearLayout {
 
     private void createIndicators() {
         removeAllViews();
-        int count = mViewpager.getAdapter().getActualCount();
+        int count = mViewpager.getAdapter().getActualCount() / 2;
         if (count <= 0) {
             return;
         }
-        int currentItem = mViewpager.getCurrentItem();
+        int currentItem = mViewpager.getCurrentItem() / 2;
 
         for (int i = 0; i < count; i++) {
             if (currentItem == i) {
@@ -262,6 +269,7 @@ public class CircularIndicator extends LinearLayout {
     }
 
     public int transformToActualPosition(int position) {
-        return position % mViewpager.getAdapter().getActualCount();
+        int result = position % mViewpager.getAdapter().getActualCount();
+        return result % (mViewpager.getAdapter().getActualCount() / 2);
     }
 }

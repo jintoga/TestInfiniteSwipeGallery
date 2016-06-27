@@ -3,6 +3,7 @@ package com.dat.testswipegallery;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -12,6 +13,9 @@ import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.InfiniteV
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.PagerAdapter;
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.ViewPager;
 import com.dat.testswipegallery.adapters.MyFragmentPagerAdapter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+    int counter = 0;
+
     private void init() {
 
         final String[] images = new String[] {
@@ -39,22 +45,12 @@ public class MainActivity extends AppCompatActivity {
             "http://s22.postimg.org/3ydo64c3l/cutest_cat_ever_snoopy_face_2.jpg",
             "http://www.zoo22.ru/upload/iblock/05a/05ab85cdf16792f2efeb1a279ba399b0.jpg",
             "http://www.zoo22.ru/upload/iblock/024/024d113a2d4b8f44554eef348fc9affb.png",
-            "http://www.zoo22.ru/upload/iblock/e55/e55f7897ac7a6f628900f1ef41558f26.png",
-            "http://s32.postimg.org/bu2cb8dlh/018.jpg",
-            "http://s32.postimg.org/mi63a2nkl/10472795_1516097865378010_1206966512854576988_o.jpg",
-            "http://s32.postimg.org/lothhghjp/11014977_419568654912989_2640509535362674658_n.jpg",
-            "http://s32.postimg.org/jlj29shqt/12791057_657347101072467_2630471624444555902_n.jpg",
-            "http://s32.postimg.org/b0z8uv1sl/afro_samurai_resurrection_original.jpg",
-            "http://s32.postimg.org/n6og59gid/asuras_wrath_wallpaper_hd_2_1080p.jpg",
-            "http://s32.postimg.org/8or8x9p79/barret_M107_by_mimi3d.jpg",
-            "http://s32.postimg.org/vz5esy1n9/barrett_m107_by_deargruadher_d4dikw8.jpg",
-            "http://s32.postimg.org/wiai27t1x/Darksiders_Wrath_of_War_1920x1080.jpg"
+            "http://s32.postimg.org/b0z8uv1sl/afro_samurai_resurrection_original.jpg"
         };
-        fragmentPagerAdapter =
-            new MyFragmentPagerAdapter(getSupportFragmentManager(), this, images);
+        List<String> data = multiplyItems(images, 2);
+        fragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), this, data);
         final PagerAdapter wrappedFragmentPagerAdapter =
             new InfinitePagerAdapter(fragmentPagerAdapter);
-
         objectViewPager.setAdapter(wrappedFragmentPagerAdapter);
         indicatorObject.setViewPager(objectViewPager);
         objectViewPager.setOffscreenPageLimit(2);
@@ -83,11 +79,20 @@ public class MainActivity extends AppCompatActivity {
                     + 1
                     + "/"
                     + objectViewPager.getActualItemCount());
+                Log.d("Swipe", "Times: " + counter++);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
             }
         });
+    }
+
+    private List<String> multiplyItems(String[] images, int n) {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            result.addAll(Arrays.asList(images));
+        }
+        return result;
     }
 }

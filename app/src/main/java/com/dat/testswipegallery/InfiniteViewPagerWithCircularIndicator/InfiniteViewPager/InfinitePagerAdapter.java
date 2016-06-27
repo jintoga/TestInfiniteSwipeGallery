@@ -46,8 +46,8 @@ public class InfinitePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         int virtualPosition = position % getRealCount();
-        debug("instantiateItem: real position: " + position);
-        debug("instantiateItem: virtual position: " + virtualPosition);
+        /*debug("instantiateItem: real position: " + position);
+        debug("instantiateItem: virtual position: " + virtualPosition);*/
 
         // only expose virtual position to the inner adapter
         return adapter.instantiateItem(container, virtualPosition);
@@ -56,8 +56,8 @@ public class InfinitePagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         int virtualPosition = position % getRealCount();
-        debug("destroyItem: real position: " + position);
-        debug("destroyItem: virtual position: " + virtualPosition);
+       /* debug("destroyItem: real position: " + position);
+        debug("destroyItem: virtual position: " + virtualPosition);*/
 
         // only expose virtual position to the inner adapter
         adapter.destroyItem(container, virtualPosition, object);

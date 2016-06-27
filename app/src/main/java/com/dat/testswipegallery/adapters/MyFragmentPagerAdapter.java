@@ -8,20 +8,21 @@ import android.view.ViewGroup;
 import com.dat.testswipegallery.InfiniteViewPagerWithCircularIndicator.FragmentPagerAdapter;
 import com.dat.testswipegallery.PhotoFragment;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by DAT on 02-May-16.
  */
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] data;
+    private List<String> data;
     private Context context;
     private boolean shouldShowChildren = false;
     private FragmentManager mFragmentManager;
     private Map<Integer, String> mFragmentTags;
     private int mLastPosition = -1;
 
-    public MyFragmentPagerAdapter(FragmentManager fm, Context context, String[] data) {
+    public MyFragmentPagerAdapter(FragmentManager fm, Context context, List<String> data) {
         super(fm);
         this.mFragmentManager = fm;
         this.context = context;
@@ -37,12 +38,12 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return data.length;
+        return data.size();
     }
 
     @Override
     public int getActualCount() {
-        return data.length;
+        return data.size();
     }
 
     @Override
@@ -59,7 +60,7 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
             PhotoFragment fragment = (PhotoFragment) obj;
             if (fragment.getArguments() == null) {
                 Bundle args = new Bundle();
-                args.putString(PhotoFragment.ARGUMENT_PHOTO, data[position]);
+                args.putString(PhotoFragment.ARGUMENT_PHOTO, data.get(position));
                 fragment.setArguments(args);
             }
             String tag = fragment.getTag();
